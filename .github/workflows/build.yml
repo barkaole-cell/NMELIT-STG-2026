@@ -7,7 +7,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Unzip project
         run: unzip -o StgNemlitApp.zip- 
-        name: Fix build.gradle syntax
+      - name: Fix build.gradle syntax
         run: sed -i 's/isMinifyEnabled = false/minifyEnabled false/' StgNemlitApp/app/build.gradle
       - uses: actions/setup-java@v4
         with:
