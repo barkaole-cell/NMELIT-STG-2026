@@ -9,6 +9,8 @@ jobs:
         run: unzip -o StgNemlitApp.zip 
       - name: Fix build.gradle syntax
         run: sed -i 's/isMinifyEnabled = false/minifyEnabled false/' StgNemlitApp/app/build.gradle
+      - name: Fix XML namespace
+        run: sed -i 's|xmlns:android="http://schemas.android.com/apk/res/android"|xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"|' StgNemlitApp/app/src/main/res/layout/activity_main.xml StgNemlitApp/app/src/main/res/layout/activity_detail.xml
       - uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
